@@ -2,19 +2,26 @@ using UnityEngine;
 
 public class Jugador : MonoBehaviour
 {
-    private Rigidbody rb;
-    public int rapidez;
+    public float rapidezDesplazamiento = 10.0f;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void FixedUpdate()
+    void Update()
     {
-        float movimientoHorizontal = Input.GetAxis("Horizontal");
-        float movimientoVertical = Input.GetAxis("Vertical");
-        Vector3 vectorMovimiento = new Vector3(movimientoHorizontal, 0.0f, movimientoVertical);
-        rb.AddForce(vectorMovimiento * rapidez);
+        float movimientoAdelanteAtras = Input.GetAxis("Vertical") * rapidezDesplazamiento;
+        float movimientoCostados = Input.GetAxis("Horizontal") * rapidezDesplazamiento;
+
+        movimientoAdelanteAtras *= Time.deltaTime;
+        movimientoCostados *= Time.deltaTime;
+
+        transform.Translate(movimientoCostados, 0, movimientoAdelanteAtras);
+
+        if (Input.GetKeyDown("escape"))
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 }
