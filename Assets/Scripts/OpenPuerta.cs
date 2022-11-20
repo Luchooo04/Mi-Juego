@@ -67,7 +67,7 @@ public class OpenPuerta : MonoBehaviour
 
         
 
-        if (Input.GetKeyDown("f") && enter)
+        if (Input.GetKeyDown("e") && enter)
         {
             
             open = !open;
@@ -99,7 +99,7 @@ public class OpenPuerta : MonoBehaviour
         
         if (enter)
         {
-            GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height - 100, 150, 30), "Press 'F' to open the door");
+            GUI.Label(new Rect(Screen.width / 2 - 75, Screen.height - 100, 150, 30), "Press 'E' to open the door");
         }
     }
 
@@ -109,7 +109,7 @@ public class OpenPuerta : MonoBehaviour
         
         if (other.gameObject.tag == "Player")
         {
-            // Colocamos la variable enter a true
+            
             enter = true;
         }
     }
