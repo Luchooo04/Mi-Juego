@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6406776261552330136}
   - component: {fileID: 3782818580978656763}
+  - component: {fileID: 4478643413399957372}
   m_Layer: 0
   m_Name: Visagra
   m_TagString: Untagged
@@ -127,8 +128,23 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 14.2, y: 24.81, z: 9.2}
+  m_Size: {x: 14.2, y: 24.81, z: 16.91}
   m_Center: {x: 8, y: 0.24, z: 0}
+--- !u!114 &4478643413399957372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6959877815679079267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b878df635c64844a9c90c7fd1a8fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 7356360227002026892}
+  closeDoorAudio: {fileID: 8300000, guid: d15dd2d7bb2d6bd4d83984dd75426a9d, type: 3}
+  openDoorAudio: {fileID: 8300000, guid: edb718b6aadb6e944b3efda1a1019214, type: 3}
 --- !u!1 &7014920449696695481
 GameObject:
   m_ObjectHideFlags: 0
