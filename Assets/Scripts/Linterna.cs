@@ -6,6 +6,7 @@ public class Linterna : MonoBehaviour
 {
     public Light luzLinterna;
     public bool activLight;
+    public AudioSource boton;
 
     
     void Update()
@@ -21,6 +22,15 @@ public class Linterna : MonoBehaviour
             { 
              luzLinterna.enabled=false;
             }
-        } 
+        }
+        if (Input.GetKeyDown(KeyCode.F)) 
+        {
+            boton.Play();
+        }
+
+        if (Input.GetKeyUp(KeyCode.F)) 
+        {
+            boton.Pause();
+        }
     }
 }
