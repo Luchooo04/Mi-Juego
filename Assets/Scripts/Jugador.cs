@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Jugador : MonoBehaviour
 {
-    public float rapidezDesplazamiento = 10.0f;
+    public float rapidezDesplazamiento = 10f;
 
     void Start()
     {
@@ -23,5 +23,7 @@ public class Jugador : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
         }
+       
     }
+    
 }
