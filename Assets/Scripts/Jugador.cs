@@ -6,12 +6,28 @@ public class Jugador : MonoBehaviour
     public AudioSource pasos;
     private bool Hactivo;
     private bool Vactivo;
+    private int cont;
+    public TMPro.TMP_Text textoCantidadRecolectados;
+    public TMPro.TMP_Text textoGanaste;
+    public CapsuleCollider col;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        col = GetComponent<CapsuleCollider>();
+        cont = 0;
+        textoGanaste.text = "";
+        setearTextos();
     }
+    private void setearTextos()
+    {
+        textoCantidadRecolectados.text = " Orbes: " + cont.ToString();
+        if (cont >= 3)
+        {
+            textoGanaste.text = " Sobreviviste... >:( ";
+        }
 
+    }
     void Update()
     {
         float movimientoAdelanteAtras = Input.GetAxis("Vertical") * rapidezDesplazamiento;
@@ -57,6 +73,17 @@ public class Jugador : MonoBehaviour
             {
                 pasos.Pause();
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) 
+    {
+        if (other.gameObject.CompareTag("Orbe") == true)
+        {
+
+            other.gameObject.SetActive(false);
+            cont = cont + 1;
+            setearTextos();
         }
     }
     
