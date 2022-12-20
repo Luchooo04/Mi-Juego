@@ -24,7 +24,7 @@ public class Jugador : MonoBehaviour
         textoCantidadRecolectados.text = " Orbes: " + cont.ToString();
         if (cont >= 3)
         {
-            textoGanaste.text = " Sobreviviste... >:( ";
+            textoGanaste.text = " Sobreviviste...  ";
         }
 
     }
