@@ -54,34 +54,34 @@ public class Linterna : MonoBehaviour
             pila1.sprite = pilaVacia;
         }
 
-        if (cantBateria > 0 && cantBateria <= 25)
+         if (cantBateria > 0 && cantBateria <= 25)
         {
-            luzLinterna.intensity = 1f;
+            luzLinterna.intensity = 150f;
             pila1.sprite = pilaLlena;
             pila2.sprite = pilaVacia;
         }
 
-        if (cantBateria > 25 && cantBateria <= 50)
+         if (cantBateria > 25 && cantBateria <= 50)
         {
-            luzLinterna.intensity = 1.5f;
+            luzLinterna.intensity = 300f;
             pila2.sprite = pilaLlena;
             pila3.sprite = pilaVacia;
         }
 
-        if (cantBateria > 50 && cantBateria <= 75)
+         if (cantBateria > 50 && cantBateria <= 75)
         {
-            luzLinterna.intensity = 2f;
+            luzLinterna.intensity = 600f;
             pila3.sprite = pilaLlena;
             pila4.sprite = pilaVacia;
         }
 
-        if (cantBateria > 75 && cantBateria <= 100)
+         if (cantBateria > 75 && cantBateria <= 100)
         {
-            luzLinterna.intensity = 2.5f;
+            luzLinterna.intensity = 900f;
             pila4.sprite = pilaLlena;
         }
-
-        if (Input.GetKeyDown(KeyCode.F)) 
+        /*
+         (Input.GetKeyDown(KeyCode.F)) 
         {
             boton.Play();
         }
@@ -90,5 +90,6 @@ public class Linterna : MonoBehaviour
         {
             boton.Pause();
         }
+        */
     }
 }
