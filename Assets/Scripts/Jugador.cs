@@ -1,8 +1,12 @@
+using System.Collections.Specialized;
+using System.Runtime.CompilerServices;
+using System.Threading;
 using UnityEngine;
 
 public class Jugador : MonoBehaviour
 {
     public float rapidezDesplazamiento = 10f;
+    public float SprintDesplazamiento = 20f;
     public AudioSource pasos;
     private bool Hactivo;
     private bool Vactivo;
@@ -10,6 +14,7 @@ public class Jugador : MonoBehaviour
     public TMPro.TMP_Text textoCantidadRecolectados;
     public TMPro.TMP_Text textoGanaste;
     public CapsuleCollider col;
+ 
 
     void Start()
     {
@@ -32,11 +37,20 @@ public class Jugador : MonoBehaviour
     {
         float movimientoAdelanteAtras = Input.GetAxis("Vertical") * rapidezDesplazamiento;
         float movimientoCostados = Input.GetAxis("Horizontal") * rapidezDesplazamiento;
+       
 
+        
         movimientoAdelanteAtras *= Time.deltaTime;
-        movimientoCostados *= Time.deltaTime;
+       movimientoCostados *= Time.deltaTime;
+        
 
         transform.Translate(movimientoCostados, 0, movimientoAdelanteAtras);
+       /* if (Input.GetKeyDown("LeftShift"))
+        {
+            SprintDesplazamiento *= 20f;
+
+        }
+       */
 
         if (Input.GetKeyDown("escape"))
         {
