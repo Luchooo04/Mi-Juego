@@ -1,13 +1,20 @@
 using System.Collections.Specialized;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Jugador : MonoBehaviour
 {
-    public float rapidezDesplazamiento = 10f;
-    public float SprintDesplazamiento = 20f;
+     float rapidezDesplazamiento = 15f;
+     float velCorrer = 25;
+     float velAuxiliar = 15;
+    public float staminaTotal = 100f;
+    public float staminaRestante;
+   
+    public Image barra;
     public AudioSource pasos;
     private bool Hactivo;
     private bool Vactivo;
@@ -24,6 +31,8 @@ public class Jugador : MonoBehaviour
         cont = 0;
         textoGanaste.text = "";
         setearTextos();
+        staminaRestante = staminaTotal;
+        barra.fillAmount = staminaRestante / staminaTotal;
     }
     private void setearTextos()
     {
@@ -34,25 +43,46 @@ public class Jugador : MonoBehaviour
         }
 
     }
-   
+
     void Update()
     {
         float movimientoAdelanteAtras = Input.GetAxis("Vertical") * rapidezDesplazamiento;
         float movimientoCostados = Input.GetAxis("Horizontal") * rapidezDesplazamiento;
-       
-
-        
+        barra.fillAmount = staminaRestante / staminaTotal;
         movimientoAdelanteAtras *= Time.deltaTime;
-       movimientoCostados *= Time.deltaTime;
-        
+        movimientoCostados *= Time.deltaTime;
+
 
         transform.Translate(movimientoCostados, 0, movimientoAdelanteAtras);
-       /* if (Input.GetKeyDown("LeftShift"))
+
+        if (staminaRestante <= -0f)
         {
-            SprintDesplazamiento *= 20f;
+
+            staminaRestante = 0.0f;
 
         }
-       */
+       
+        if (staminaRestante >= 100f)
+        {
+            staminaRestante = 100.0f;
+        }
+
+       
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                staminaRestante -= Time.deltaTime;
+                rapidezDesplazamiento = velCorrer;
+
+            }
+            else if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                staminaRestante += Time.deltaTime;
+                rapidezDesplazamiento = velAuxiliar;
+
+            }
+        
+        
 
         if (Input.GetKeyDown("escape"))
         {
