@@ -2,6 +2,7 @@ using System.Collections.Specialized;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Jugador : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class Jugador : MonoBehaviour
         }
 
     }
+   
     void Update()
     {
         float movimientoAdelanteAtras = Input.GetAxis("Vertical") * rapidezDesplazamiento;
@@ -87,6 +89,12 @@ public class Jugador : MonoBehaviour
             {
                 pasos.Pause();
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R)) 
+        {
+            SceneManager.LoadScene(0);
+        
         }
     }
 
