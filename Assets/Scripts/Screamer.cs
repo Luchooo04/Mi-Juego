@@ -10,8 +10,12 @@ public class Screamer : MonoBehaviour
     {
         if (other.CompareTag("Player")) 
         {
-            Instantiate(susto[Random.Range(0, susto.Length)]);
-            Destroy(gameObject);
+            
+            
+                Instantiate(susto[Random.Range(0, susto.Length)]);
+                //Destroy(gameObject);
+            
         }
+
     }
 }
