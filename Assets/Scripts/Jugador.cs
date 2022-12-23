@@ -13,7 +13,10 @@ public class Jugador : MonoBehaviour
      float velAuxiliar = 15;
     public float staminaTotal = 100f;
     public float staminaRestante;
-   
+    //public float Salud = 1;
+    //public float SaludMaxima = 1;
+    //public GameObject[] Muerto;
+
     public Image barra;
     public AudioSource pasos;
     private bool Hactivo;
@@ -67,6 +70,11 @@ public class Jugador : MonoBehaviour
             staminaRestante = 100.0f;
         }
 
+        if (staminaRestante == 0f) 
+        {
+            velCorrer = velAuxiliar;
+        
+        }
        
 
             if (Input.GetKey(KeyCode.LeftShift))
@@ -138,5 +146,11 @@ public class Jugador : MonoBehaviour
             setearTextos();
         }
     }
+
+   /* public void RecibirDaño(float daño) 
+    {
+        Salud -= daño;
     
+    }
+    */
 } 
